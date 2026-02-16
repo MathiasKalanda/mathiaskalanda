@@ -1,0 +1,101 @@
+export const projects = [
+  {
+    id: 1,
+    title: "E-Commerce Platform with Medusa",
+    description:
+      "Full-featured e-commerce solution built with Medusa.js, Next.js, and Tailwind CSS. Includes payment processing, inventory management, and admin dashboard with real-time analytics.",
+    image: "/projects/ecommerce.jpg",
+    technologies: [
+      "Next.js",
+      "Medusa",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "Stripe",
+      "Redis",
+    ],
+    github: "https://github.com/yourusername/ecommerce-platform",
+    live: "https://ecommerce-demo.com",
+    featured: true,
+  },
+  {
+    id: 2,
+    title: "Headless CMS Portfolio with Sanity",
+    description:
+      "Dynamic portfolio website powered by Sanity.io CMS. Features real-time content updates, custom schemas, GROQ queries, and preview mode for editors.",
+    image: "/projects/sanity-portfolio.jpg",
+    technologies: [
+      "Next.js",
+      "Sanity.io",
+      "TypeScript",
+      "Tailwind CSS",
+      "GROQ",
+    ],
+    github: "https://github.com/yourusername/sanity-portfolio",
+    live: "https://sanity-portfolio.com",
+    featured: true,
+  },
+  {
+    id: 3,
+    title: "Real-time Dashboard with TanStack",
+    description:
+      "Analytics dashboard with real-time data visualization using TanStack Query, Chart.js, and WebSocket connections for live updates.",
+    image: "/projects/dashboard.jpg",
+    technologies: [
+      "React",
+      "TanStack Query",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Socket.io",
+    ],
+    github: "https://github.com/yourusername/analytics-dashboard",
+    live: "https://dashboard-demo.com",
+    featured: false,
+  },
+  {
+    id: 4,
+    title: "Shopify Custom Storefront",
+    description:
+      "Headless Shopify storefront built with Hydrogen framework and custom React components for enhanced user experience and faster load times.",
+    image: "/projects/shopify.jpg",
+    technologies: [
+      "React",
+      "Shopify Hydrogen",
+      "Tailwind CSS",
+      "GraphQL",
+      "Oxygen",
+    ],
+    github: "https://github.com/yourusername/shopify-storefront",
+    live: "https://shopify-demo.com",
+    featured: true,
+  },
+  {
+    id: 5,
+    title: "Task Management API with Node.js",
+    description:
+      "RESTful API built with Node.js, Express, and PostgreSQL. Features JWT authentication, rate limiting, and comprehensive documentation.",
+    image: "/projects/api.jpg",
+    technologies: [
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "JWT",
+      "Swagger",
+      "Jest",
+    ],
+    github: "https://github.com/yourusername/task-api",
+    live: "https://api-demo.com",
+    featured: false,
+  },
+  {
+    id: 6,
+    title: "Remix Blog with MDX",
+    description:
+      "Modern blog platform built with Remix and MDX. Features syntax highlighting, image optimization, and seamless content management.",
+    image: "/projects/remix-blog.jpg",
+    technologies: ["Remix", "MDX", "Tailwind CSS", "Prisma", "SQLite"],
+    github: "https://github.com/yourusername/remix-blog",
+    live: "https://remix-blog.com",
+    featured: false,
+  },
+];
