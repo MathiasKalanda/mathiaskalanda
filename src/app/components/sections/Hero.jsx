@@ -52,7 +52,7 @@ export default function Hero() {
             <Github size={24} />
           </Link>
           <Link
-            href="https://linkedin.com/in/yourusername"
+            href="https://linkedin.com/in/mathiaskalanda"
             target="_blank"
             className="p-3 bg-gray-800 rounded-full hover:bg-gray-700 transition-colors"
           >
