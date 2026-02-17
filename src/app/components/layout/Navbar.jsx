@@ -17,8 +17,16 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    // Only run on client side
+    if (typeof window === "undefined") return;
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
@@ -36,9 +44,17 @@ export default function Navbar() {
       }
     };
 
+    // Initial check
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Don't render until after mount to prevent hydration issues
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <>
