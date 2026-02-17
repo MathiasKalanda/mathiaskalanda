@@ -17,11 +17,34 @@ import { useEffect, useState, useRef } from "react";
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [typedText, setTypedText] = useState("");
+  const [mounted, setMounted] = useState(false);
+  const [particles, setParticles] = useState([]);
   const fullText = "Full Stack Developer";
   const containerRef = useRef(null);
 
+  // Set mounted state
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Initialize particles only on client
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    // Generate random particles
+    const newParticles = [...Array(20)].map((_, i) => ({
+      id: i,
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      duration: Math.random() * 10 + 10,
+    }));
+    setParticles(newParticles);
+  }, []);
+
   // Mouse move effect for parallax
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const handleMouseMove = (e) => {
       if (containerRef.current) {
         const { clientX, clientY } = e;
@@ -55,6 +78,11 @@ export default function Hero() {
 
     return () => clearInterval(typing);
   }, []);
+
+  // Don't render anything until mounted
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <section
@@ -93,20 +121,20 @@ export default function Hero() {
 
       {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
+        {particles.map((particle) => (
           <motion.div
-            key={i}
+            key={particle.id}
             className="absolute w-1 h-1 bg-purple-400/30 rounded-full"
-            initial={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
+            style={{
+              left: particle.x,
+              top: particle.y,
             }}
             animate={{
               y: [null, -30, 30, -30],
               x: [null, 30, -30, 30],
             }}
             transition={{
-              duration: Math.random() * 10 + 10,
+              duration: particle.duration,
               repeat: Infinity,
               ease: "linear",
             }}
@@ -296,13 +324,13 @@ export default function Hero() {
               <span className="relative z-10">Download Resume</span>
 
               {/* Sliding overlay - covers button on hover */}
-              {/* <motion.div
+              <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600"
-                initial={{ x: "100%" }} // Start hidden on the right
-                whileHover={{ x: 0 }} // Slide in from right on hover
+                initial={{ x: "100%" }}
+                whileHover={{ x: 0 }}
                 transition={{ duration: 0.3 }}
                 style={{ zIndex: 5 }}
-              /> */}
+              />
 
               {/* Text appears above overlay on hover */}
               <span className="absolute inset-0 flex items-center justify-center z-20 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
