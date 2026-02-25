@@ -37,22 +37,21 @@ export default function About() {
       {
         year: "2020 - 2024",
         title: "B.Sc. Computer Science",
-        institution: "University of Technology",
+        institution: "Kampala International University",
         description:
           "Graduated with honors. Specialized in Web Technologies and Distributed Systems.",
         achievements: [
-          "GPA: 3.8/4.0",
-          "Dean's List 2022-2024",
+          "GPA: 3.89/5.0",
+          "Dean's List 2022-2025",
           "Capstone Project Excellence Award",
         ],
       },
       {
-        year: "2018 - 2020",
-        title: "High School Diploma",
-        institution: "Science & Technology High School",
-        description:
-          "Focused on Mathematics and Computer Science fundamentals.",
-        achievements: ["Valedictorian", "National Science Fair Finalist"],
+        year: "2017 - 2019",
+        title: "A Level Education",
+        institution: "St Henry's College Kitovu",
+        description: "Focused on Physics, Art, and Mathematics.",
+        achievements: ["National Science Fair Finalist"],
       },
     ],
     experience: [
@@ -190,7 +189,7 @@ export default function About() {
               {/* Image container */}
               <div className="relative aspect-square rounded-2xl overflow-hidden bg-gray-900">
                 <Image
-                  src="/profile.jpg"
+                  src="/portfolio.jpeg"
                   alt="Mathias Kalanda"
                   width={600}
                   height={600}

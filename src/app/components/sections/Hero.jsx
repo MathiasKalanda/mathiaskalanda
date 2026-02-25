@@ -317,7 +317,7 @@ export default function Hero() {
           {/* Download Resume Button with Sliding Overlay */}
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link
-              href="/resume.pdf"
+              href="/cv.pdf"
               className="group relative px-8 py-4 bg-transparent border-2 border-purple-500 rounded-lg text-white font-medium overflow-hidden"
             >
               {/* Background (visible when overlay slides out) */}

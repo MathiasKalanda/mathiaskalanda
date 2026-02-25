@@ -77,16 +77,16 @@ export default function Contact() {
     {
       icon: Mail,
       label: "Email",
-      value: "mathias.kalanda@example.com",
-      link: "mailto:mathias.kalanda@example.com",
+      value: "muyombakalanda2@gmail.com",
+      link: "mailto:muyombakalanda2@gmail.com.com",
       color: "from-purple-500 to-pink-500",
       copyable: true,
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+256 70X XXX XXX", // Uganda format: +256
-      link: "tel:+25670XXXXXXX",
+      value: "+256 769391181", // Uganda format: +256
+      link: "tel:+256769391181",
       color: "from-blue-500 to-cyan-500",
       copyable: true,
     },
