@@ -139,7 +139,8 @@ export default function Navbar() {
 
               {/* Resume Button */}
               <Link
-                href="/resume.pdf"
+                target="_blank"
+                href="/Resume Kato Muyomba Mathias.pdf"
                 className="ml-4 px-5 py-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105"
               >
                 Resume

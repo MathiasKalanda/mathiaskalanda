@@ -78,7 +78,7 @@ export default function Contact() {
       icon: Mail,
       label: "Email",
       value: "muyombakalanda2@gmail.com",
-      link: "mailto:muyombakalanda2@gmail.com.com",
+      link: "mailto:muyombakalanda2@gmail.com",
       color: "from-purple-500 to-pink-500",
       copyable: true,
     },
@@ -109,10 +109,11 @@ export default function Contact() {
     },
     {
       icon: Linkedin,
-      href: "https://linkedin.com/in/mathiaskalanda",
+      href: "https://www.linkedin.com/in/kato-muyomba-mathias-87b402393",
       label: "LinkedIn",
       color: "hover:bg-blue-600",
     },
+
     {
       icon: Twitter,
       href: "https://twitter.com/mathiaskalanda",

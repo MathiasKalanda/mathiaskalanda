@@ -189,7 +189,7 @@ export default function About() {
               {/* Image container */}
               <div className="relative aspect-square rounded-2xl overflow-hidden bg-gray-900">
                 <Image
-                  src="/portfolio.jpeg"
+                  src="/mkprofile2.jpeg"
                   alt="Mathias Kalanda"
                   width={600}
                   height={600}

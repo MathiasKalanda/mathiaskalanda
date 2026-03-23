@@ -60,24 +60,30 @@ export default function Hero() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  // Typing effect
+  // FIXED: Typing effect that doesn't restart on re-renders
   useEffect(() => {
     let i = 0;
-    const typing = setInterval(() => {
+    let timeoutId;
+
+    const typeNext = () => {
       if (i < fullText.length) {
         setTypedText(fullText.substring(0, i + 1));
         i++;
+        timeoutId = setTimeout(typeNext, 100);
       } else {
-        clearInterval(typing);
-        setTimeout(() => {
+        // Wait 3 seconds then restart
+        timeoutId = setTimeout(() => {
           setTypedText("");
           i = 0;
+          typeNext();
         }, 3000);
       }
-    }, 100);
+    };
 
-    return () => clearInterval(typing);
-  }, []);
+    typeNext();
+
+    return () => clearTimeout(timeoutId);
+  }, []); // Empty dependency array ensures it only runs once
 
   // Don't render anything until mounted
   if (!mounted) {
@@ -88,7 +94,7 @@ export default function Hero() {
     <section
       id="home"
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24"
     >
       {/* Cyberpunk Grid Background */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
@@ -182,6 +188,21 @@ export default function Hero() {
           </h1>
         </motion.div>
 
+        {/* ADD THIS: Typing effect display */}
+        {/* <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-6"
+        >
+          <div className="relative inline-block">
+            <div className="text-2xl md:text-3xl font-semibold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+              {typedText}
+              <span className="animate-pulse ml-1">|</span>
+            </div>
+          </div>
+        </motion.div> */}
+
         {/* Dynamic Title with Typing Effect */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -207,9 +228,10 @@ export default function Hero() {
           {[
             "React",
             "Next.js",
-            "Node.js",
+            "Express.js",
             "TypeScript",
             "PostgreSQL",
+            "Nest.js",
             "Tailwind",
           ].map((tech, i) => (
             <motion.span
@@ -264,13 +286,13 @@ export default function Hero() {
               color: "hover:bg-gray-700",
             },
             {
-              href: "https://linkedin.com/in/mathiaskalanda",
+              href: "https://www.linkedin.com/in/kato-muyomba-mathias-87b402393",
               icon: Linkedin,
               label: "LinkedIn",
               color: "hover:bg-blue-600",
             },
             {
-              href: "mailto:mathias@example.com",
+              href: "mailto:muyombakalanda2@gmail.com",
               icon: Mail,
               label: "Email",
               color: "hover:bg-red-600",
@@ -317,7 +339,8 @@ export default function Hero() {
           {/* Download Resume Button with Sliding Overlay */}
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link
-              href="/cv.pdf"
+              target="_blank"
+              href="/Resume Kato Muyomba Mathias.pdf"
               className="group relative px-8 py-4 bg-transparent border-2 border-purple-500 rounded-lg text-white font-medium overflow-hidden"
             >
               {/* Background (visible when overlay slides out) */}
