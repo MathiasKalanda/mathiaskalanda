@@ -59,7 +59,7 @@ export const projects = [
     title: "Real-time Dashboard with TanStack",
     description:
       "Analytics dashboard with real-time data visualization using TanStack Query, Chart.js, and WebSocket connections for live updates.",
-    image: "/ArchGuard.png",
+    image: "/Archguard.png",
     technologies: [
       "React",
       "TanStack Query",
